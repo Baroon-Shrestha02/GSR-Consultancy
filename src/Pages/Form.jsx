@@ -1,8 +1,10 @@
 // src/Components/AdmissionForm.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function Form() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -20,38 +22,9 @@ export default function Form() {
     payment: "",
   });
 
-  const courseOptions = {
-    English: [
-      "IELTS Preparation",
-      "PTE Preparation",
-      "Basic English",
-      "Business English",
-      "Conversational English",
-    ],
-    Japanese: [
-      "Basic Japanese (N5)",
-      "Elementary Japanese (N4)",
-      "Intermediate Japanese (N3)",
-      "Upper Intermediate Japanese (N2)",
-      "Advanced Japanese (N1)",
-      "JLPT Preparation Course",
-      "Japanese Conversation Classes",
-      "Business Japanese",
-      "Japanese Culture & Language",
-    ],
-    Korean: [
-      "Basic Korean (TOPIK I Level 1)",
-      "Elementary Korean (TOPIK I Level 2)",
-      "Intermediate Korean (TOPIK II Level 3)",
-      "Upper Intermediate Korean (TOPIK II Level 4)",
-      "Advanced Korean (TOPIK II Level 5)",
-      "Proficient Korean (TOPIK II Level 6)",
-      "TOPIK Preparation Course",
-      "Korean Conversation Classes",
-      "Business Korean",
-      "K-Pop & Korean Culture",
-    ],
-  };
+  const courseOptions = t("add-form.form.lang.options", {
+    returnObjects: true,
+  });
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -123,7 +96,7 @@ export default function Form() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Admission Form
+          {t("add-form.hero.heading")}
         </motion.h1>
         <motion.p
           className="text-lg md:text-xl max-w-2xl mx-auto font-semibold text-gray-200"
@@ -131,14 +104,13 @@ export default function Form() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Fill out the form below to enroll in our language courses. We offer
-          English, Japanese, and Korean language programs.
+          {t("add-form.hero.subheading")}
         </motion.p>
       </section>
 
       {/* Admission Form Section */}
       <motion.form
-        className="w-full z-20 max-w-4xl bg-white p-12 rounded-2xl shadow-xl mt-12 mx-auto text-black"
+        className="w-full z-20 max-w-4xl bg-white p-12 rounded-2xl shadow-xl mt-12 mb-12 mx-auto text-black"
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -148,7 +120,7 @@ export default function Form() {
           <input
             type="text"
             name="firstName"
-            placeholder="First Name"
+            placeholder={t("add-form.form.fname")}
             value={formData.firstName}
             onChange={handleChange}
             className="input-field"
@@ -157,7 +129,7 @@ export default function Form() {
           <input
             type="text"
             name="lastName"
-            placeholder="Last Name"
+            placeholder={t("add-form.form.lname")}
             value={formData.lastName}
             onChange={handleChange}
             className="input-field"
@@ -166,7 +138,7 @@ export default function Form() {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={t("add-form.form.mail")}
             value={formData.email}
             onChange={handleChange}
             className="input-field"
@@ -175,7 +147,7 @@ export default function Form() {
           <input
             type="text"
             name="phone"
-            placeholder="Phone"
+            placeholder={t("add-form.form.phone")}
             value={formData.phone}
             onChange={handleChange}
             className="input-field"
@@ -188,9 +160,9 @@ export default function Form() {
             className="input-field"
             required
           >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+            <option value="">{t("add-form.form.gender.sel")}</option>
+            <option value="Male">{t("add-form.form.gender.male")}</option>
+            <option value="Female">{t("add-form.form.gender.fe")}</option>
           </select>
           <input
             type="date"
@@ -203,7 +175,7 @@ export default function Form() {
           <input
             type="text"
             name="guardianName"
-            placeholder="Guardian Name"
+            placeholder={t("add-form.form.gname")}
             value={formData.guardianName}
             onChange={handleChange}
             className="input-field"
@@ -211,40 +183,22 @@ export default function Form() {
           <input
             type="text"
             name="guardianContact"
-            placeholder="Guardian Contact"
+            placeholder={t("add-form.form.gcontact")}
             value={formData.guardianContact}
             onChange={handleChange}
             className="input-field"
           />
           <textarea
             name="address"
-            placeholder="Full Address"
+            placeholder={t("add-form.form.add")}
             value={formData.address}
             onChange={handleChange}
             className="input-field md:col-span-2 h-24 resize-none"
           />
-          <input
-            type="text"
-            name="state"
-            placeholder="State"
-            value={formData.state}
-            onChange={handleChange}
-            className="input-field"
-          />
-          <input
-            type="text"
-            name="city"
-            placeholder="City"
-            value={formData.city}
-            onChange={handleChange}
-            className="input-field"
-          />
         </div>
-
-        {/* Course Category Selection */}
         <div className="mt-8">
           <label className="font-bold text-black mb-3 block text-lg">
-            Select Language:
+            {t("add-form.form.lang.title")}
           </label>
           <div className="flex flex-wrap gap-4">
             {Object.keys(courseOptions).map((category) => (
@@ -265,12 +219,11 @@ export default function Form() {
             ))}
           </div>
         </div>
-
-        {/* Course Selection - Only show when category is selected */}
+        {/* Course Selection */}
         {formData.courseCategory && (
           <div className="mt-8">
             <label className="font-bold text-black mb-3 block text-lg">
-              Select {formData.courseCategory} Courses:
+              {t("add-form.form.lang.title")} - {formData.courseCategory}:
             </label>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {courseOptions[formData.courseCategory].map((course) => (
@@ -292,40 +245,13 @@ export default function Form() {
             </div>
           </div>
         )}
-
-        {/* Payment */}
-        <div className="mt-8">
-          <label className="font-bold text-black mb-3 block text-lg">
-            Payment Method:
-          </label>
-          <div className="flex items-center gap-6">
-            {["Online", "Offline"].map((method) => (
-              <label
-                key={method}
-                className="flex items-center gap-2 cursor-pointer text-black font-semibold"
-              >
-                <input
-                  type="radio"
-                  name="payment"
-                  value={method}
-                  checked={formData.payment === method}
-                  onChange={handleChange}
-                  className="accent-[#002452]"
-                />
-                {method}
-              </label>
-            ))}
-          </div>
-        </div>
-
         {/* Submit Button */}
         <button
           type="submit"
           className="mt-10 w-full bg-[#002452] text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition-colors text-lg"
         >
-          Submit Application
+          {t("add-form.form.button")}
         </button>
-
         {/* Input Styles */}
         <style>
           {`

@@ -11,48 +11,7 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-const services = [
-  {
-    icon: <FaUserTie color="#fff" />,
-    title: "One-on-One Career Counseling",
-    description:
-      "Personalized guidance to help students choose the right academic or professional path based on their interests and goals.",
-    points: [
-      "Personal Assessment",
-      "Career Planning",
-      "Goal Setting",
-      "95% Pass Rate",
-    ],
-    bgColor: "#2E86C1",
-  },
-  {
-    icon: <FaLanguage color="#fff" />,
-    title: "Japanese Language Training",
-    description:
-      "Certified training programs from N5 to N1 level, focused on clearing JLPT, NAT, and language exams required for Japanese institutions.",
-    points: [
-      "JLPT Preparation",
-      "NAT Training",
-      "Speaking Practice",
-      "200+ Admissions",
-    ],
-    bgColor: "#E67E22",
-  },
-  {
-    icon: <FaUniversity color="#fff" />,
-    title: "Documentation Preparation",
-    description:
-      "Complete support with documentation, application forms, essays, and communication with Japanese schools and universities.",
-    points: [
-      "Application Prep",
-      "Essay Writing",
-      "School Communication",
-      "85% Success Rate",
-    ],
-    bgColor: "#9B59B6",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 // Slide-up animation for the card
 const cardVariants = {
@@ -75,6 +34,15 @@ const pointVariants = {
 };
 
 export default function ServicesSection() {
+  const { t } = useTranslation();
+
+  const iconMap = {
+    FaUserTie: <FaUserTie color="#fff" />,
+    FaLanguage: <FaLanguage color="#fff" />,
+    FaUniversity: <FaUniversity color="#fff" />,
+  };
+
+  const services = t("home.services.items", { returnObjects: true });
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -86,7 +54,7 @@ export default function ServicesSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Discover Our Services
+            {t("home.services.title")}
           </motion.h2>
           <motion.p
             className="text-xl md:text-2xl max-w-4xl font-extralight text-gray-900 text-center mb-16"
@@ -94,9 +62,7 @@ export default function ServicesSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus quae
-            obcaecati accusantium unde eius aliquid natus possimus sequi officia
-            omnis?
+            {t("home.services.subtitle")}
           </motion.p>
         </div>
 
@@ -121,7 +87,7 @@ export default function ServicesSection() {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                {service.icon}
+                {iconMap[service.icon]}
               </motion.div>
 
               {/* Title */}
@@ -173,7 +139,7 @@ export default function ServicesSection() {
         >
           <Link to="/services">
             <button className="px-6 py-2 bg-[#002452] text-white rounded-2xl shadow-xl text-2xl font-bold transitiion duration-300 ease-in-out transition-all hover:-translate-y-1 hover:scale-105">
-              Explore More
+              {t("home.services.button")}
             </button>
           </Link>
         </motion.div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 // Simple animation hook to replace framer motion
@@ -28,44 +29,14 @@ const useInView = () => {
 };
 
 export default function StudyAbroad() {
+  const { t } = useTranslation();
   const [titleRef, titleVisible] = useInView();
   const [japanRef, japanVisible] = useInView();
   const [koreaRef, koreaVisible] = useInView();
   const [ctaRef, ctaVisible] = useInView();
 
-  const japanCourses = [
-    {
-      id: 1,
-      name: "Japanese Language Proficiency (JLPT)",
-      levels: "N5 to N1",
-      description:
-        "Master Japanese from beginner (N5) to advanced (N1) levels with comprehensive language training",
-    },
-    {
-      id: 2,
-      name: "Japanese Cultural Practices",
-      levels: "All Levels",
-      description:
-        "Immerse yourself in traditional and modern Japanese culture, customs, and business etiquette",
-    },
-  ];
-
-  const koreaCourses = [
-    {
-      id: 3,
-      name: "Korean Language Proficiency (TOPIK)",
-      levels: "Level 1-6",
-      description:
-        "Learn Korean from basics to advanced proficiency with TOPIK certification preparation",
-    },
-    {
-      id: 4,
-      name: "Korean Cultural Studies",
-      levels: "All Levels",
-      description:
-        "Explore Korean traditions, K-culture, history, and contemporary social practices",
-    },
-  ];
+  const japanCourses = t("home.abroad.japan", { returnObjects: true });
+  const koreaCourses = t("home.abroad.korea", { returnObjects: true });
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -80,12 +51,10 @@ export default function StudyAbroad() {
           }`}
         >
           <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 text-center mb-6">
-            Study Abroad Programs
+            {t("home.abroad.title")}
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Unlock your potential with world-class education in Japan and Korea.
-            Experience new cultures while advancing your academic and
-            professional goals.
+            {t("home.abroad.subtitle")}
           </p>
         </div>
       </section>
@@ -116,12 +85,10 @@ export default function StudyAbroad() {
             <div className="lg:w-1/2 space-y-8 order-2 lg:order-1">
               <div>
                 <h2 className="text-4xl font-bold text-[#002452] mb-4">
-                  Study in Japan 🇯🇵
+                  {t("home.abroad.op.japan.title")}
                 </h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  Experience world-class education in the Land of the Rising
-                  Sun. Master Japanese language and immerse yourself in rich
-                  cultural experiences.
+                  {t("home.abroad.op.japan.subtitle")}
                 </p>
               </div>
 
@@ -152,7 +119,7 @@ export default function StudyAbroad() {
               <div className="mt-8">
                 <Link to="/courses/study-in-japan">
                   <button className="bg-[#002452] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-900 transition-colors shadow-md hover:scale-105 transform">
-                    Learn More About Japan Programs
+                    {t("home.abroad.op.japan.button")}
                   </button>
                 </Link>
               </div>
@@ -187,11 +154,10 @@ export default function StudyAbroad() {
             <div className="lg:w-1/2 space-y-8 order-2">
               <div>
                 <h2 className="text-4xl font-bold text-[#002452] mb-4">
-                  Study in Korea 🇰🇷
+                  {t("home.abroad.op.korea.title")}
                 </h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  Discover innovative education in South Korea. Master Korean
-                  language and explore the vibrant K-culture phenomenon.
+                  {t("home.abroad.op.korea.subtitle")}
                 </p>
               </div>
 
@@ -222,7 +188,7 @@ export default function StudyAbroad() {
               <div className="mt-8">
                 <Link to="/courses/study-in-korea">
                   <button className="bg-[#002452] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-900 transition-colors shadow-md hover:scale-105 transform">
-                    Learn More About Korea Programs
+                    {t("home.abroad.op.korea.button")}
                   </button>
                 </Link>
               </div>
@@ -242,22 +208,20 @@ export default function StudyAbroad() {
           >
             <div className="mb-8">
               <h2 className="text-4xl font-bold text-[#002452] mb-4">
-                Ready to Start Your Journey?
+                {t("home.abroad.op.cta.title")}
               </h2>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Take the next step towards your international education. Get
-                detailed information about programs, scholarships, and
-                application processes.
+                {t("home.abroad.op.cta.subtitle")}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <button className="bg-[#002452] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-900 transition-all shadow-md hover:scale-105 transform">
-                View All Programs
+                {t("home.abroad.op.cta.button.all")}
               </button>
               <Link to="/contact">
                 <button className="bg-white text-[#002452] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all border-2 border-[#002452] hover:scale-105 transform">
-                  Get Consultation
+                  {t("home.abroad.op.cta.button.consult")}
                 </button>
               </Link>
             </div>

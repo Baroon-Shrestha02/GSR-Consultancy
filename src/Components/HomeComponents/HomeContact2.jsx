@@ -2,49 +2,7 @@ import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-
-const features = [
-  {
-    number: "01",
-    title: "Personalized Guidance",
-    description:
-      "Our consultants provide tailored advice to match your academic goals, career aspirations, and personal strengths.",
-    icon: "🎯",
-    img: "final/guidance.jpg",
-  },
-  {
-    number: "02",
-    title: "Learn From Experts",
-    description:
-      "Benefit from years of experience and insider knowledge about universities, courses, and admission processes worldwide.",
-    icon: "👩‍🏫",
-    img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=900&auto=format&fit=crop&q=60",
-  },
-  {
-    number: "03",
-    title: "Documentation & Application Support",
-    description:
-      "Get end-to-end assistance in preparing, refining, and submitting your documents and applications for the best chances of success.",
-    icon: "📝",
-    img: "final/visa.jpg",
-  },
-  {
-    number: "04",
-    title: "Smooth Visa Process",
-    description:
-      "Our visa guidance ensures you have the correct documentation and meet all requirements without unnecessary stress.",
-    icon: "✈️",
-    img: "final/sVisa.jpg",
-  },
-  {
-    number: "05",
-    title: "Final Preparation & Departure",
-    description:
-      "We guide you through your final preparations, from packing tips and cultural orientation to travel arrangements, ensuring a smooth and confident departure.",
-    icon: "💰",
-    img: "final/scholar.jpg",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -71,7 +29,9 @@ const leftVariants = {
 
 export default function HomeContact2() {
   const ref = useRef(null);
+  const { t } = useTranslation();
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const features = t("home.why.features", { returnObjects: true });
 
   // Create individual refs for each feature item
   const itemRefs = Array(features.length)
@@ -98,19 +58,17 @@ export default function HomeContact2() {
             >
               <div className="max-w-2xl text-left space-y-4 sm:space-y-6">
                 <h2 className="font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl leading-tight text-gray-900">
-                  Why should you{" "}
-                  <span className="text-[#EFB000]">Trust Us</span>?
+                  {t("home.why.t1")}{" "}
+                  <span className="text-[#EFB000]">{t("home.why.t2")}</span>?
                 </h2>
 
                 <p className="text-base sm:text-lg text-gray-700">
-                  We guide students every step of the way—from choosing the
-                  right course to securing admissions, scholarships, and visas—
-                  ensuring a smooth path to academic success.
+                  {t("home.why.p1")}
                 </p>
 
                 <Link to="/contact">
                   <button className="px-4 sm:px-6 py-2 sm:py-3 bg-[#002452] hover:bg-blue-900 text-white font-semibold rounded-xl shadow-lg transition text-sm sm:text-base">
-                    Book a Free Consultation
+                    {t("home.why.button")}
                   </button>
                 </Link>
               </div>

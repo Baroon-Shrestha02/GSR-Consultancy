@@ -1,39 +1,38 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Bijaya Tamang",
-    role: "Business Owner",
-    image: "/BijayTamang.jpg",
-    content:
-      "Course materials were good, the mentoring approach was good and working with other people via the internet was good.",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Dilkumari Dura",
-    role: "Marketing Manager",
-    image: "Dilkumari Dura.jpg",
-    content:
-      "The interactive learning experience exceeded my expectations. The platform made complex topics easy to understand.",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Gobinda Budhair",
-    role: "Software Developer",
-    image: "GobindaBudhair.jpg",
-    content:
-      "Amazing support from instructors and fellow students. The collaborative environment really enhanced my learning journey.",
-    rating: 5,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function HomeTestimonials() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Bijaya Tamang",
+      role: "Business Owner",
+      image: "BijayTamang.jpg",
+      content: t("home.testi.list.bijaya.content"),
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: "Dilkumari Dura",
+      role: "Marketing Manager",
+      image: "/Dilkumari Dura.jpg",
+      content: t("home.testi.list.dilkumari.content"),
+      rating: 5,
+    },
+    {
+      id: 3,
+      name: "Gobinda Budhair",
+      role: "Software Developer",
+      image: "GobindaBudhair.jpg",
+      content: t("home.testi.list.gobinda.content"),
+      rating: 5,
+    },
+  ];
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -74,21 +73,19 @@ export default function HomeTestimonials() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="text-gray-900">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Trusted by <br />
-              <span className="text-gray-900">Hundreds Students.</span>
+            <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              {t("home.testi.t1")} <br />
+              {t("home.testi.t2")}
             </h1>
             <p className="text-gray-800 text-lg mb-12 max-w-md">
-              Guiding students towards their dreams with expert mentorship,
-              reliable support, and a proven track record of success in
-              education abroad.
+              {t("home.testi.para")}
             </p>
             <div className="flex items-end gap-4">
               <div className="text-7xl lg:text-8xl font-bold text-gray-900">
                 98%
               </div>
               <div className="text-gray-800 pb-4">
-                <div className="font-medium">Visa Success Rate</div>
+                <div className="font-medium">{t("home.testi.rate")}</div>
               </div>
             </div>
           </div>

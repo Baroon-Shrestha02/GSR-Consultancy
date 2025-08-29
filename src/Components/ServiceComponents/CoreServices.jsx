@@ -10,6 +10,7 @@ import {
   FaPassport,
   FaChartLine,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const services = [
   {
@@ -103,6 +104,17 @@ const pointVariants = {
 };
 
 export default function ServicesSection() {
+  const { t } = useTranslation();
+  const icons = {
+    careerCounseling: <FaUserTie color="#fff" />,
+    japaneseTraining: <FaLanguage color="#fff" />,
+    universitySupport: <FaUniversity color="#fff" />,
+    culturalOrientation: <FaGlobeAsia color="#fff" />,
+    visaAssistance: <FaPassport color="#fff" />,
+    careerGrowth: <FaChartLine color="#fff" />,
+  };
+
+  const services = t("services.discover.items", { returnObjects: true });
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -137,7 +149,7 @@ export default function ServicesSection() {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                {service.icon}
+                {icons[service.icon]}
               </motion.div>
 
               {/* Title */}

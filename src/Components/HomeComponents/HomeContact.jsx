@@ -1,40 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-const contactInfo = [
-  {
-    id: 1,
-    title: "Phone",
-    details: ["+977 9803016479"],
-    icon: "📞",
-    color: "bg-blue-500",
-    type: "phone",
-  },
-  {
-    id: 2,
-    title: "Email",
-    details: ["info@gsreducation.com"],
-    icon: "📧",
-    color: "bg-green-500",
-    type: "email",
-  },
-  {
-    id: 3,
-    title: "Address",
-    details: ["Kathmandu, near Shiva Mandir, Ring Road"],
-    icon: "📍",
-    color: "bg-orange-500",
-    type: "map",
-  },
-  {
-    id: 4,
-    title: "Business Hours",
-    details: ["Sun - Fri: 9:00 AM - 5:00 PM", "Sat: Closed"],
-    icon: "🕒",
-    color: "bg-purple-500",
-    type: "text",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -116,6 +82,43 @@ const ContactCard = ({ info }) => {
 };
 
 export default function HomeContact() {
+  const { t } = useTranslation();
+
+  const contactInfo = [
+    {
+      id: 1,
+      title: t("home.visit.phone"),
+      details: ["+977 9803016479"],
+      icon: "📞",
+      color: "bg-blue-500",
+      type: "phone",
+    },
+    {
+      id: 2,
+      title: t("home.visit.mail"),
+      details: ["info@gsreducation.com"],
+      icon: "📧",
+      color: "bg-green-500",
+      type: "email",
+    },
+    {
+      id: 3,
+      title: t("home.visit.add"),
+      details: ["Kathmandu, near Shiva Mandir, Ring Road"],
+      icon: "📍",
+      color: "bg-orange-500",
+      type: "map",
+    },
+    {
+      id: 4,
+      title: t("home.visit.hrs"),
+      details: ["Sun - Fri: 6:00 AM - 6:00 PM", "Sat: Closed"],
+      icon: "🕒",
+      color: "bg-purple-500",
+      type: "text",
+    },
+  ];
+
   return (
     <section className="py-20 bg-gradient-to-b from-gray-100 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,12 +131,11 @@ export default function HomeContact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Visit Us
+            {t("home.visit.title")}
           </h2>
           <div className="w-16 h-1 bg-blue-500 mx-auto mb-6"></div>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Get in touch with us today. We're here to help you with all your
-            needs and answer any questions you may have.
+            {t("home.visit.subtitle")}
           </p>
         </motion.div>
 
@@ -148,11 +150,10 @@ export default function HomeContact() {
           <motion.div className="space-y-6">
             <motion.div variants={itemVariants} className="mb-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Get In Touch
+                {t("home.visit.get")}
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                We'd love to hear from you. Send us a message and we'll respond
-                as soon as possible.
+                {t("home.visit.subget")}
               </p>
             </motion.div>
 
@@ -173,7 +174,7 @@ export default function HomeContact() {
           >
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Find Us Here
+                {t("home.visit.find")}
               </h3>
               <div className="relative overflow-hidden rounded-lg shadow-md">
                 <iframe

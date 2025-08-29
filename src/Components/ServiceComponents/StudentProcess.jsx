@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Users, BookOpen, FileText, Globe } from "lucide-react";
 import { BsAirplane } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 const stepImages = [
   "/serv/cosuslation.jpg",
@@ -10,46 +11,12 @@ const stepImages = [
   "/serv/visaapproval.jpg",
   "/serv/departure.jpg",
 ];
-
-const steps = [
-  {
-    id: 1,
-    title: "Career Counseling",
-    description: `Our experienced counselors discuss your interests, career goals, and academic aspirations. 
-    We help you choose the best path for studying in Japan and answer all your queries about courses and universities.`,
-    icon: Users,
-  },
-  {
-    id: 2,
-    title: "Course & University Selection",
-    description: `We assist you in shortlisting universities and courses based on your profile, budget, and preferences. 
-    You get personalized advice to choose the program that fits your goals and increases your chances of admission.`,
-    icon: BookOpen,
-  },
-  {
-    id: 3,
-    title: "Application & Documentation",
-    description: `We guide you in preparing and submitting all necessary documents, including academic transcripts, recommendation letters, and application forms. 
-    Our team ensures that your application is complete, accurate, and submitted on time.`,
-    icon: FileText,
-  },
-  {
-    id: 4,
-    title: "Visa & Approval",
-    description: `Once admission is confirmed, we provide step-by-step assistance with the student visa application, including document verification and submission. 
-    We help you track your application until you receive the visa approval.`,
-    icon: Globe,
-  },
-  {
-    id: 5,
-    title: "Pre-Departure Orientation",
-    description: `Before your departure, we conduct orientation sessions covering Japanese culture, academic expectations, housing, banking, and essential life skills. 
-    This ensures you are well-prepared and confident to start your journey in Japan.`,
-    icon: BsAirplane,
-  },
-];
+const stepIcons = [Users, BookOpen, FileText, Globe, BsAirplane];
 
 export default function StudentProcessWithImages() {
+  const { t } = useTranslation();
+  const steps = t("services.process.steps", { returnObjects: true });
+
   return (
     <section className="bg-gradient-to-b from-gray-100 to-white py-16 px-4">
       <motion.div
@@ -60,18 +27,17 @@ export default function StudentProcessWithImages() {
         className="max-w-5xl mx-auto text-center mb-12"
       >
         <h2 className="text-5xl font-bold text-blue-900 mb-4">
-          Step-by-Step Application Process
+          {t("services.process.title")}
         </h2>
         <p className="text-gray-700 text-lg">
-          From initial counseling to boarding the plane, we guide you at every
-          step to make your study abroad journey smooth.
+          {t("services.process.subtitle")}
         </p>
       </motion.div>
 
       <div className="space-y-20 max-w-6xl mx-auto">
         {steps.map((step, index) => {
           const isLeft = index % 2 === 0;
-          const Icon = step.icon;
+          const Icon = stepIcons[index];
 
           return (
             <motion.div

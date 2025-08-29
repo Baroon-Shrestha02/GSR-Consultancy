@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // CountUp component
 const CountUp = ({ end, duration = 2000, suffix = "" }) => {
@@ -41,6 +42,7 @@ const CountUp = ({ end, duration = 2000, suffix = "" }) => {
 
 // HeroSection component
 const HeroSection = () => {
+  const { t } = useTranslation();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -97,7 +99,7 @@ const HeroSection = () => {
             variants={itemVariants}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6"
           >
-            GSR Educational Academy
+            {t("home.hero.heading")}
           </motion.h1>
 
           {/* Paragraph */}
@@ -105,10 +107,7 @@ const HeroSection = () => {
             variants={itemVariants}
             className="text-base sm:text-lg md:text-xl lg:text-xl text-yellow-50 mb-8 max-w-2xl px-2 sm:px-0"
           >
-            We provide consistent and reliable educational opportunities for
-            learners worldwide, empowering students to achieve their academic
-            and professional goals with expert guidance and personalized
-            support.
+            {t("home.hero.subheading")}
           </motion.p>
           {/* Buttons */}
           <motion.div
@@ -122,7 +121,7 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto bg-white text-orange-500 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-colors duration-200 hover:bg-yellow-50 shadow-md"
               >
-                Learn More
+                {t("home.hero.button.learn")}
               </motion.button>
             </Link>
 
@@ -133,7 +132,7 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto bg-yellow-100 text-orange-600 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-colors duration-200 hover:bg-white shadow-md"
               >
-                Call Now
+                {t("home.hero.button.call")}
               </motion.button>
             </a>
           </motion.div>
@@ -150,7 +149,7 @@ const HeroSection = () => {
                 <CountUp end={1000} suffix="+" />
               </div>
               <div className="text-yellow-100 font-medium border-b-2 border-white pb-1 inline-block">
-                Students
+                {t("home.hero.stats.std")}
               </div>
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -158,7 +157,7 @@ const HeroSection = () => {
                 <CountUp end={20} suffix="+" />
               </div>
               <div className="text-yellow-100 font-medium border-b-2 border-white pb-1 inline-block">
-                Instructors
+                {t("home.hero.stats.ins")}
               </div>
             </motion.div>
 
@@ -167,7 +166,7 @@ const HeroSection = () => {
                 <CountUp end={20} suffix="%" />
               </div>
               <div className="text-yellow-100 font-medium border-b-2 border-white pb-1 inline-block">
-                Courses
+                {t("home.hero.stats.course")}
               </div>
             </motion.div>
           </motion.div>

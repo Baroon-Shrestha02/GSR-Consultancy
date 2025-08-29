@@ -1,14 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
+useTranslation;
 export default function ServicesHero() {
+  const { t } = useTranslation();
   return (
     <section className="relative h-[80vh] flex items-end pb-16 overflow-hidden">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('WhatsApp Image 2025-08-22 at 09.26.36_e5795502.jpg')" }}
+        style={{
+          backgroundImage:
+            "url('WhatsApp Image 2025-08-22 at 09.26.36_e5795502.jpg')",
+        }}
       />
 
       {/* Overlay */}
@@ -26,12 +31,10 @@ export default function ServicesHero() {
             className="text-white max-w-2xl"
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              Our Services
+              {t("services.hero.title")}
             </h1>
             <p className="text-xl md:text-2xl leading-relaxed">
-              We provide top-quality consulting services to help you achieve
-              your goals. From planning to execution, we’re your trusted
-              partner.
+              {t("services.hero.subtitle")}
             </p>
           </motion.div>
 
@@ -44,7 +47,7 @@ export default function ServicesHero() {
           >
             <Link to="/contact">
               <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-4 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all">
-                Contact Us
+                {t("services.hero.button")}
               </button>
             </Link>
           </motion.div>

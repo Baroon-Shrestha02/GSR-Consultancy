@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const HomeIntro = () => {
+  const { t } = useTranslation();
   const container = {
     hidden: {},
     visible: {
@@ -49,17 +51,14 @@ const HomeIntro = () => {
         {/* Text Section */}
         <motion.div className="space-y-6" variants={fadeUp}>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-snug">
-            Choose{" "}
-            <span className="text-yellow-500">GSR Educational Consultancy</span>{" "}
-            — Your Trusted Abroad Partner
+            {t("home.intro.t1")}{" "}
+            <span className="text-yellow-500">{t("home.hero.heading")}</span> —
+            {t("home.intro.t2")}
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
-            At GSR, we guide students toward achieving their dreams of studying
-            abroad with confidence. From selecting the right university to visa
-            assistance and pre-departure preparation, our team ensures a smooth
-            journey every step of the way. <br />
+            {t("home.intro.p1")} <br />
             <span className="font-semibold text-gray-900">
-              Your future deserves the best — and that’s what we deliver.
+              {t("home.intro.slo")}
             </span>
           </p>
           <Link to="/about">
@@ -68,7 +67,7 @@ const HomeIntro = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Your Journey
+              {t("home.intro.button")}
             </motion.button>
           </Link>
         </motion.div>

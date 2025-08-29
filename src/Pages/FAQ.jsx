@@ -1,69 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function FAQ() {
-  const faqItems = [
-    // From Japan Student & SSW FAQs
-    {
-      question: "Q1. What is the difference between a Student Visa and SSW?",
-      answer:
-        "A Student Visa allows study in Japan, while SSW allows direct employment.",
-    },
-    {
-      question: "Q2. Can I apply for both Student Visa and SSW?",
-      answer: "You must choose one; applying for both is not allowed.",
-    },
-    {
-      question: "Q3. How much Japanese proficiency is required?",
-      answer:
-        "Student Visa requires JLPT/NAT N5. SSW requires JLPT/NAT N4 and a skill test.",
-    },
-    {
-      question: "Q4. Which exam is valid, JLPT or NAT?",
-      answer: "Both JLPT and NAT exams are valid.",
-    },
-    {
-      question: "Q5. Can I work part-time as a student?",
-      answer: "Students can work up to 28 hours per week with permission.",
-    },
-    {
-      question: "Q6. Do I need work experience for SSW?",
-      answer:
-        "Work experience is not always required, but passing the skill test is mandatory.",
-    },
-    {
-      question: "Q7. Can a Student Visa be changed to SSW?",
-      answer:
-        "A Student Visa can be changed to SSW after passing the language and skill test.",
-    },
-    {
-      question: "Q8. Which is better, Student Visa or SSW?",
-      answer:
-        "Student Visa is better for higher education and long-term careers, while SSW is better for immediate work and income.",
-    },
-
-    // From Institute FAQs
-    {
-      question: "Q9. Who are the teachers?",
-      answer:
-        "Classes are taught by experienced Nepali and Japanese instructors.",
-    },
-    {
-      question: "Q10. Do you provide visa processing services?",
-      answer:
-        "Full visa processing guidance and support are provided at every step.",
-    },
-    {
-      question: "Q11. What are the class timings?",
-      answer: "Classes are available in morning, day, and evening shifts.",
-    },
-    {
-      question: "Q12. Do you provide support after reaching Japan?",
-      answer:
-        " Yes ,we provide support in connecting with schools or companies after arriving in Japan.",
-    },
-  ];
-
+  const { t } = useTranslation();
+  const faqItems = t("faq.items", { returnObjects: true });
   // Container animation
   const containerVariants = {
     hidden: {},
@@ -90,7 +31,7 @@ export default function FAQ() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Selected FAQs
+          {t("faq.hero.heading")}
         </motion.h1>
 
         <motion.p
@@ -99,19 +40,14 @@ export default function FAQ() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Find answers to the most common questions about{" "}
-          <span className="font-semibold text-yellow-400">
-            Japan Student & SSW
-          </span>
-          and{" "}
-          <span className="font-semibold text-yellow-400">our Institute</span>.
+          {t("faq.hero.subheading")}
         </motion.p>
       </section>
 
       {/* FAQ Section */}
       <section className="px-6 md:px-20 lg:px-40 py-16">
         <h2 className="text-3xl font-bold text-[#002452] mb-6">
-          Frequently Asked Questions
+          {t("faq.title")}
         </h2>
 
         <motion.div
