@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About Us",
     "services": "Services",
     "gallery": "Gallery",
@@ -33,5 +34,191 @@
       "cpy": "GSR Education, All Rights Reserved.",
       "book": "Book Now"
     }
+  },
+  "about": {
+    "heading": "About GSR",
+    "subheading": "We are committed to guiding students towards global educational opportunities with integrity and care.",
+    "button": "Contact Us",
+    "intro": {
+      "heading": "Who Are We?",
+      "p1": "At GSR Educational Academy , we deliver world-class education that empowers learners globally. Our platform integrates cutting-edge pedagogy, interactive technologies , and expert guidance to ensure every student gains practical competencies essential for success.",
+      "p2": "Through curated programs in languages, skill development, and professional training, we cultivate intellectual curiosity ,cross-cultural understanding , and career readiness We transform learning into a holistic journey —flexible, engaging, and tailored to each student.",
+      "button": "Explore courses",
+      "lang": {
+        "eng": "English",
+        "kor": "Korean",
+        "jap": "Japanese"
+      }
+    },
+    "founder": {
+      "heading": "Message from the founder",
+      "p1": "“When I started this institute 8 years ago, my vision was simple: to create a place where students could learn Japanese, Korean, and English not just as subjects, but as tools to unlock their dreams. Over the years, I have seen thousands of students walk into our classrooms with hope in their eyes—and walk out with",
+      "span1": "Confidence",
+      "span2": "skills, and",
+      "span3": "opportunities",
+      "p12": "that changed their lives.",
+      "p2": "I believe language learning is not about perfection on the first day; it is about progress every single day. Success comes step by step.",
+      "p3": "Every letter you learn, every sentence you practice, every conversation you try—these are the steps that build your success. Our promise is to guide, motivate, and celebrate every milestone with you."
+    },
+    "ceo": {
+      "heading": "Message from the CEO",
+      "p1": "Languages are bridges to opportunities, cultures, and dreams. Our mission is to help students master Japanese, Korean, and English with confidence, connecting with the world and creating brighter futures.",
+      "p2": "Success is about combining",
+      "span1": "consistency",
+      "and": "and",
+      "span2": "speed",
+      "p22": "Imagine the rabbit who never stops—focused, disciplined, and humble. No tortoise could win against that.",
+      "p3": " That is our vision for you: learn step by step with consistency, move forward with",
+      "span3": "energy",
+      "span4": "speed",
+      "span5": "determination",
+      "p4": "Each lesson is a step closer to your dream."
+    },
+
+    "benefits": [
+      {
+        "number": "01",
+        "title": "Learn with Expert Instructors",
+        "description": "Our courses are taught by industry-leading experts to give you the best learning experience.",
+        "icon": "👨‍🏫",
+        "img": "/images/IMG-20250822-WA0001.jpg"
+      },
+      {
+        "number": "02",
+        "title": "Top Instructors Make Learning Easy",
+        "description": "Learn from professionals who guide you step-by-step and simplify complex topics.",
+        "icon": "📘",
+        "img": "/images/IMG-20250822-WA0001.jpg"
+      },
+      {
+        "number": "03",
+        "title": "Smooth Visa & Application Process",
+        "description": "Get step-by-step guidance to complete your applications and visa requirements efficiently and stress-free.",
+        "icon": "✈️",
+        "img": "/images/WhatsApp Image 2025-08-17 at 08.03.57_d383c851.jpg"
+      },
+      {
+        "number": "04",
+        "title": "Ongoing Student Support",
+        "description": "From pre-departure briefings to settling in abroad, we provide assistance at every step of the journey.",
+        "icon": "🤝",
+        "img": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&auto=format&fit=crop&q=60"
+      }
+    ],
+    "vision": {
+      "heading": "Teaching increases productivity"
+    },
+    "acheive": "Our Acheivements",
+    "congrat": "Congratulations to Our Students!",
+    "stat": {
+      "std": "Students",
+      "ins": "Expert Instructors",
+      "rate": "Success Rate"
+    }
+  },
+  "footer": {
+    "top": {
+      "heading": "Admission is open for the next year batch",
+      "start": "Get Started"
+    },
+    "p1": "GSR Educational Academy provides high-quality education and guidance for students in Kathmandu, Nepal. We are committed to excellence in learning.",
+    "quick": "Quick Links",
+    "cpy": "GSR Educational Academy",
+    "privacy": "Privacy Policy",
+    "term": "Terms of Services",
+    "help": {
+      "need": "Need Help?",
+      "call": "Call us directly?",
+      "supp": "Need Support?",
+      "ser": "Sevice Area",
+      "loc": "Location",
+      "fol": "Follow Us on"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "heading": "Welcome to Our Gallery",
+      "subheading": "Explore beautiful moments."
+    },
+    "heading": "Gallery",
+    "subheading": "Browse through our featured gimplse of our institure and students.",
+    "view": "View Image"
+  },
+  "contact": {
+    "hero": {
+      "heading": "Get in Touch with Us",
+      "subheading": "Have questions or need support? We guide you at every step to help you achieve your study abroad dreams."
+    },
+    "heading": "How we can help you?",
+    "subheading": "Get in touch with our educational team",
+    "hello": "Say hello!",
+    "hellsub": "We're here to help and answer any question you might have. We look forward to hearing from you. If you need help, please contact us or meet to office with coffee.",
+    "form": {
+      "name": "Your Full Name",
+      "mail": "Your Email Address",
+      "number": "Your Phone Number",
+      "sub": "Your Subject",
+      "msg": "Your Message",
+      "info": "We are committed to protecting your privacy. We will never collect information about you without your explicit consent.",
+      "button": "Send message",
+      "placeholder": {
+        "sub": "How can we help you?",
+        "msg": "Describe about your inquiry or educational questions."
+      },
+      "loc": {
+        "title": "GSR Educational Academy",
+        "add": "Address",
+        "mail": "Email",
+        "button": "View on Google Maps",
+        "mob": "Mobile"
+      }
+    }
+  },
+  "doc": {
+    "hero": {
+      "heading": "Documentation & Visa Guidance",
+      "subheading": "We assist students at every step—from document preparation to pre-departure orientation—for Japanese, Korean, and English programs. Our team coordinates with professional consultants and licensed manpower agencies to ensure smooth processing."
+    },
+    "steps": [
+      {
+        "id": 1,
+        "title": "Document Preparation",
+        "description": "The first step is to gather all necessary documents, including passports, citizenship certificates, birth certificates, and police clearances. Academic transcripts, character certificates, and skill certificates must be verified and organized. Proper document preparation reduces errors, avoids delays, and ensures smooth processing. Having documents ready in advance also saves time and builds confidence when submitting forms to consultants or authorities.",
+        "keyPoints": [
+          "Gather all necessary documents",
+          "Verify academic and skill certificates",
+          "Reduces errors and avoids delays",
+          "Saves time and builds confidence"
+        ],
+        "image": "/documentation.jpg",
+        "imgLeft": false
+      },
+      {
+        "id": 2,
+        "title": "Application & Visa Processing",
+        "description": "During visa processing, accuracy and attention to detail are crucial. Each application form should be completed carefully to avoid errors in spelling, dates, and signatures. Coordination with licensed consultants ensures that financial documents, affidavits, and sponsorship papers meet all requirements. Proper verification and submission significantly increase the chances of visa approval and prevent unnecessary delays or rejections.",
+        "keyPoints": [
+          "Accuracy and attention to detail",
+          "Avoid errors in spelling, dates, and signatures",
+          "Financial documents, affidavits, and sponsorship papers",
+          "Increase chances of visa approval"
+        ],
+        "image": "/Application.jpg",
+        "imgLeft": true
+      },
+      {
+        "id": 3,
+        "title": "Final Preparation & Departure",
+        "description": "The final step ensures that students are fully prepared for departure. Pre-departure orientation covers Japanese, Korean, and English lifestyle, culture, workplace etiquette, and daily routines. Assistance with ticketing, travel preparation, and last-minute guidance helps students feel confident, safe, and ready for their journey. This step reduces anxiety, improves readiness, and ensures a smooth transition into life abroad.",
+        "keyPoints": [
+          "Fully prepared for departure",
+          "Japanese, Korean, and English lifestyle and culture",
+          "Confident, safe, and ready",
+          "Reduces anxiety and improves readiness"
+        ],
+        "image": "/final.jpg",
+        "imgLeft": false
+      }
+    ]
   }
 }

@@ -1,22 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import {
   AcademicCapIcon,
   GlobeAltIcon,
   BookOpenIcon,
   ChatBubbleLeftRightIcon,
 } from "@heroicons/react/24/outline";
+import { useTranslation } from "react-i18next";
 
 // Languages offered
-const languages = [
-  { name: "English", icon: GlobeAltIcon },
-  { name: "Korean", icon: AcademicCapIcon },
-  { name: "Japanese", icon: BookOpenIcon },
-  { name: "Chinese", icon: ChatBubbleLeftRightIcon },
-];
 
 export default function AboutIntro() {
+  const { t } = useTranslation();
+
+  const languages = [
+    { name: t("about.intro.lang.eng"), icon: GlobeAltIcon },
+    { name: t("about.intro.lang.kor"), icon: AcademicCapIcon },
+    { name: t("about.intro.lang.jap"), icon: BookOpenIcon },
+  ];
   const containerVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -52,71 +54,28 @@ export default function AboutIntro() {
               className="text-3xl md:text-5xl font-bold text-[#002452] mb-4"
               variants={itemVariants}
             >
-              What Do We Do?
+              {t("about.intro.heading")}
             </motion.h2>
 
             <motion.p
               className="text-gray-700 text-lg md:text-xl mb-6 leading-relaxed"
               variants={itemVariants}
             >
-              At{" "}
-              <span className="font-bold text-blue-900">
-                GSR Educational Academy
-              </span>
-              , we deliver{" "}
-              <span className="font-bold text-blue-900">
-                world-class education
-              </span>{" "}
-              that empowers learners globally. Our platform integrates{" "}
-              <span className="font-bold text-blue-900">
-                cutting-edge pedagogy
-              </span>
-              ,{" "}
-              <span className="font-bold text-blue-900">
-                interactive technologies
-              </span>
-              , and{" "}
-              <span className="font-bold text-blue-900">expert guidance</span>{" "}
-              to ensure every student gains{" "}
-              <span className="font-bold text-blue-900">
-                practical competencies
-              </span>{" "}
-              essential for success.
+              {t("about.intro.p1")}
             </motion.p>
 
             <motion.p
-              className="text-gray-700 text-lg md:text-xl mb-6 leading-relaxed"
+              className="text-gray-700 text-lg md:text-xl leading-relaxed"
               variants={itemVariants}
             >
-              Through curated programs in languages, skill development, and
-              professional training, we cultivate{" "}
-              <span className="font-bold text-blue-900">
-                intellectual curiosity
-              </span>
-              ,{" "}
-              <span className="font-bold text-blue-900">
-                cross-cultural understanding
-              </span>
-              , and{" "}
-              <span className="font-bold text-blue-900">career readiness</span>.
-              We transform learning into a{" "}
-              <span className="font-bold text-blue-900">holistic journey</span>
-              —flexible, engaging, and tailored to each student.
+              {t("about.intro.p2")}
             </motion.p>
 
             {/* Explore Button */}
-            <motion.div variants={itemVariants}>
-              <Link
-                to="/courses"
-                className="inline-block bg-blue-900 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition"
-              >
-                Explore Courses
-              </Link>
-            </motion.div>
 
             {/* Languages Offered */}
             <motion.div
-              className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4"
+              className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4"
               variants={containerVariants}
             >
               {languages.map((lang, index) => {
@@ -134,6 +93,15 @@ export default function AboutIntro() {
                   </motion.div>
                 );
               })}
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <Link
+                to="/courses/study-in-japan"
+                className="inline-block bg-blue-900 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition"
+              >
+                {t("about.intro.button")}
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -166,34 +134,28 @@ export default function AboutIntro() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h3 className="text-2xl md:text-4xl font-bold text-blue-900 mb-6">
-              Message from the Founder
+              {t("about.founder.heading")}
             </h3>
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-4">
-              “When I started this institute 8 years ago, my vision was simple:
-              to create a place where students could learn{" "}
+              {t("about.founder.p1")}{" "}
               <span className="font-bold text-blue-900">
-                Japanese, Korean, and English
+                {t("about.founder.span1")}
+              </span>
+              ,{" "}
+              <span className="font-bold text-blue-900">
+                {t("about.founder.span2")}
+              </span>
+              ,{" "}
+              <span className="font-bold text-blue-900">
+                {t("about.founder.span3")}
               </span>{" "}
-              not just as subjects, but as tools to unlock their dreams. Over
-              the years, I have seen thousands of students walk into our
-              classrooms with hope in their eyes—and walk out with{" "}
-              <span className="font-bold text-blue-900">confidence</span>,{" "}
-              <span className="font-bold text-blue-900">skills</span>, and{" "}
-              <span className="font-bold text-blue-900">opportunities</span>{" "}
-              that changed their lives.”
+              {t("about.founder.p12")}”
             </p>
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-4">
-              I believe language learning is not about perfection on the first
-              day; it is about{" "}
-              <span className="font-bold text-blue-900">progress</span> every
-              single day. Success comes step by step.
+              {t("about.founder.p2")}
             </p>
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-              Every letter you learn, every sentence you practice, every
-              conversation you try—these are the steps that build your{" "}
-              <span className="font-bold text-blue-900">success</span>. Our
-              promise is to guide, motivate, and celebrate every milestone with
-              you.”
+              {t("about.founder.p3")}
             </p>
           </motion.div>
 
@@ -241,33 +203,36 @@ export default function AboutIntro() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h3 className="text-2xl md:text-4xl font-bold text-blue-900 mb-6">
-              Message from the CEO
+              {t("about.ceo.heading")}
             </h3>
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-4">
-              “Languages are{" "}
-              <span className="font-bold text-blue-900">bridges</span> to
-              opportunities, cultures, and dreams. Our mission is to help
-              students master{" "}
-              <span className="font-bold text-blue-900">
-                Japanese, Korean, and English
-              </span>{" "}
-              with confidence, connecting with the world and creating brighter
-              futures.”
+              {t("about.ceo.p1")}
             </p>
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-4">
-              Success is about combining{" "}
-              <span className="font-bold text-blue-900">consistency</span> and{" "}
-              <span className="font-bold text-blue-900">speed</span>. Imagine
-              the rabbit who never stops—focused, disciplined, and humble. No
-              tortoise could win against that.
+              {t("about.ceo.p2")}{" "}
+              <span className="font-bold text-blue-900">
+                {t("about.ceo.span1")}
+              </span>{" "}
+              {t("about.ceo.and")}{" "}
+              <span className="font-bold text-blue-900">
+                {t("about.ceo.span2")}
+              </span>
+              . {t("about.ceo.p22")}
             </p>
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-              That is our vision for you: learn step by step with consistency,
-              move forward with{" "}
-              <span className="font-bold text-blue-900">energy</span>,{" "}
-              <span className="font-bold text-blue-900">speed</span>, and{" "}
-              <span className="font-bold text-blue-900">determination</span>.
-              Each lesson is a step closer to your dream.”
+              {t("about.ceo.p3")}{" "}
+              <span className="font-bold text-blue-900">
+                {t("about.ceo.span3")}
+              </span>
+              ,{" "}
+              <span className="font-bold text-blue-900">
+                {t("about.ceo.span4")}
+              </span>
+              , {t("about.ceo.and")}{" "}
+              <span className="font-bold text-blue-900">
+                {t("about.ceo.span5")}
+              </span>
+              . {t("about.ceo.p4")}
             </p>
           </motion.div>
         </div>

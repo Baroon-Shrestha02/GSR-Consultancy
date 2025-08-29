@@ -5,6 +5,7 @@ import {
 import { TrophyIcon, UsersIcon } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const congratulations = [
   {
@@ -29,12 +30,6 @@ const congratulations = [
   },
 ];
 
-const achievements = [
-  { title: "Students", number: "1,000+", icon: AcademicCapIcon },
-  { title: "Expert Instructors", number: "10+", icon: UsersIcon },
-  { title: "Success rate", number: "99%", icon: TrophyIcon },
-];
-
 // Motion variants
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,6 +45,13 @@ const itemVariants = {
 };
 
 export default function AboutSuccess() {
+  const { t } = useTranslation();
+
+  const achievements = [
+    { title: t("about.stat.std"), number: "1,000+", icon: AcademicCapIcon },
+    { title: t("about.stat.ins"), number: "10+", icon: UsersIcon },
+    { title: t("about.stat.rate"), number: "99%", icon: TrophyIcon },
+  ];
   return (
     <section>
       {/* Achievements Section */}
@@ -64,7 +66,7 @@ export default function AboutSuccess() {
           className="text-3xl md:text-5xl font-bold text-blue-900 mb-10 text-center"
           variants={itemVariants}
         >
-          Our Achievements
+          {t("about.acheive")}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 container mx-auto px-4">
@@ -100,7 +102,7 @@ export default function AboutSuccess() {
           className="text-3xl md:text-5xl font-bold text-blue-900 mb-10 text-center"
           variants={itemVariants}
         >
-          Congratulations to Our Students!
+          {t("about.congrat")}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 container mx-auto px-4">

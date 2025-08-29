@@ -1,13 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesHero() {
+  const { t } = useTranslation();
   return (
     <section className="relative h-[80vh] flex items-end pb-16">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('WhatsApp Image 2025-08-17 at 08.03.55_41b2a95c.jpg')" }}
+        style={{
+          backgroundImage:
+            "url('WhatsApp Image 2025-08-17 at 08.03.55_41b2a95c.jpg')",
+        }}
       />
 
       {/* Overlay */}
@@ -25,11 +30,10 @@ export default function ServicesHero() {
             className="text-white max-w-2xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Get in Touch with Us
+              {t("contact.hero.heading")}
             </h1>
             <p className="text-lg md:text-2xl mb-6">
-              Have questions or need support? We guide you at every step to help
-              you achieve your study abroad dreams.
+              {t("contact.hero.subheading")}
             </p>
           </motion.div>
         </div>

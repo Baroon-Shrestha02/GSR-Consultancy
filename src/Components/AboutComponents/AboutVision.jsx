@@ -1,41 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function AboutVision() {
-  const benefits = [
-    {
-      number: "01",
-      title: "Learn with Expert Instructors",
-      description:
-        "Our courses are taught by industry-leading experts to give you the best learning experience.",
-      icon: "👨‍🏫",
-      img: "/images/IMG-20250822-WA0001.jpg",
-    },
-    {
-      number: "02",
-      title: "Top Instructors Make Learning Easy",
-      description:
-        "Learn from professionals who guide you step-by-step and simplify complex topics.",
-      icon: "📘",
-      img: "/images/IMG-20250822-WA0001.jpg",
-    },
-    {
-      number: "03",
-      title: "Smooth Visa & Application Process",
-      description:
-        "Get step-by-step guidance to complete your applications and visa requirements efficiently and stress-free.",
-      icon: "✈️",
-      img: "/images/WhatsApp Image 2025-08-17 at 08.03.57_d383c851.jpg",
-    },
-    {
-      number: "04",
-      title: "Ongoing Student Support",
-      description:
-        "From pre-departure briefings to settling in abroad, we provide assistance at every step of the journey.",
-      icon: "🤝",
-      img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&auto=format&fit=crop&q=60",
-    },
-  ];
+  const { t } = useTranslation();
+  const benefits = t("about.benefits", { returnObjects: true });
+  const vision = t("about.vision.heading");
 
   return (
     <section className="bg-gradient-to-b from-blue-50 to-white py-24 relative overflow-hidden">
@@ -46,16 +16,6 @@ export default function AboutVision() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <motion.span
-          className="text-yellow-500 font-semibold tracking-wide uppercase text-sm"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          Why Choose Us?
-        </motion.span>
-
         <motion.h2
           className="text-3xl md:text-5xl font-bold text-gray-900 leading-snug"
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +23,7 @@ export default function AboutVision() {
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          Teaching Makes You Productive
+          {vision}
         </motion.h2>
       </motion.div>
 

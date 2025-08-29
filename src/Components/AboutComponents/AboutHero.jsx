@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Smooth animated letters
 const AnimatedTextLetters = ({ text, className }) => {
@@ -20,8 +21,8 @@ const AnimatedTextLetters = ({ text, className }) => {
       transition: { type: "spring", stiffness: 100, damping: 18 },
     },
   };
-  
-   return (
+
+  return (
     <motion.div
       variants={container}
       initial="hidden"
@@ -73,6 +74,7 @@ const AnimatedTextWords = ({ text, className }) => {
 };
 
 export default function AboutHero() {
+  const { t } = useTranslation();
   return (
     <section className="relative h-[80vh] flex items-end pb-16">
       {/* Background image */}
@@ -96,11 +98,11 @@ export default function AboutHero() {
           {/* Left side: Animated heading & paragraph */}
           <div className="text-white max-w-2xl">
             <AnimatedTextLetters
-              text="About GSR"
+              text={t("about.heading")}
               className="text-5xl md:text-7xl font-bold mb-4"
             />
             <AnimatedTextWords
-              text="We are committed to guiding students towards global educational opportunities with integrity and care."
+              text={t("about.subheading")}
               className="text-xl md:text-2xl font-extralight leading-relaxed"
             />
           </div>
@@ -118,7 +120,7 @@ export default function AboutHero() {
               to="/contact"
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-4 rounded-lg text-lg shadow-lg"
             >
-              Contact Us
+              {t("about.button")}
             </Link>
           </motion.div>
         </div>

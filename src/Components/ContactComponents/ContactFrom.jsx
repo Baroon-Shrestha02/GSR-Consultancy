@@ -9,8 +9,10 @@ import {
   User,
   Send,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ContactFrom() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -51,23 +53,17 @@ export default function ContactFrom() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            How we can help you?
+            {t("contact.heading")}
           </h1>
-          <p className="text-gray-600 text-lg">
-            Get in touch with our educational team
-          </p>
+          <p className="text-gray-600 text-lg">{t("contact.subheading")}</p>
         </div>
 
         <div className="flex justify-center mb-8">
           <div className="max-w-3xl bg-white rounded-2xl shadow-lg p-8 w-full">
             <h2 className="text-3xl font-bold text-gray-800 mb-2 flex items-center gap-2 justify-center">
-              Say hello! <span className="text-2xl">😊</span>
+              {t("contact.hello")} <span className="text-2xl">😊</span>
             </h2>
-            <p className="text-gray-600 text-center">
-              We're here to help and answer any question you might have. We look
-              forward to hearing from you. If you need help, please contact us
-              or meet to office with coffee.
-            </p>
+            <p className="text-gray-600 text-center">{t("contact.hellsub")}</p>
           </div>
         </div>
 
@@ -78,7 +74,8 @@ export default function ContactFrom() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Full Name <span className="text-red-500">*</span>
+                    {t("contact.form.name")}{" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -87,7 +84,7 @@ export default function ContactFrom() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="Your full name"
+                      placeholder={t("contact.form.name")}
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
                     />
                   </div>
@@ -95,7 +92,8 @@ export default function ContactFrom() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Email Address <span className="text-red-500">*</span>
+                    {t("contact.form.mail")}{" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -104,7 +102,7 @@ export default function ContactFrom() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="Your email address"
+                      placeholder={t("contact.form.mail")}
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
                     />
                   </div>
@@ -114,7 +112,8 @@ export default function ContactFrom() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Phone Number <span className="text-red-500">*</span>
+                    {t("contact.form.number")}{" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -123,7 +122,7 @@ export default function ContactFrom() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="Your phone number"
+                      placeholder={t("contact.form.number")}
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
                     />
                   </div>
@@ -131,7 +130,7 @@ export default function ContactFrom() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Subject
+                    {t("contact.form.sub")}{" "}
                   </label>
                   <div className="relative">
                     <MessageCircle className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -141,7 +140,7 @@ export default function ContactFrom() {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      placeholder="How can we help you?"
+                      placeholder={t("contact.form.placeholder.sub")}
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
                     />
                   </div>
@@ -150,13 +149,14 @@ export default function ContactFrom() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Message <span className="text-red-500">*</span>
+                  {t("contact.form.msg")}{" "}
+                  <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  placeholder="Describe about your inquiry or educational questions."
+                  placeholder={t("contact.form.placeholder.msg")}
                   rows="6"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none"
                 ></textarea>
@@ -164,8 +164,7 @@ export default function ContactFrom() {
 
               <div className="flex flex-col  justify-between items-start sm:items-center gap-4">
                 <p className="text-sm text-gray-600 max-w-md">
-                  We are committed to protecting your privacy. We will never
-                  collect information about you without your explicit consent.
+                  {t("contact.form.info")}{" "}
                 </p>
                 <button
                   type="button"
@@ -173,7 +172,7 @@ export default function ContactFrom() {
                   className="flex items-center gap-2 bg-gray-800 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors"
                 >
                   <Send className="h-4 w-4" />
-                  Send message
+                  {t("contact.form.button")}{" "}
                 </button>
               </div>
             </div>
@@ -203,7 +202,7 @@ export default function ContactFrom() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold text-gray-800 mb-4">
-                    GSR Educational Academy
+                    {t("contact.form.loc.title")}
                   </h3>
 
                   <div className="space-y-4">
@@ -219,7 +218,9 @@ export default function ContactFrom() {
                         <div className="font-medium text-gray-800">
                           Kathmandu, near Shiva Mandir, Ring Road
                         </div>
-                        <div className="text-gray-600 text-sm">Address</div>
+                        <div className="text-gray-600 text-sm">
+                          {t("contact.form.loc.add")}
+                        </div>
                       </div>
                     </a>
 
@@ -234,7 +235,7 @@ export default function ContactFrom() {
                           +977 9803016479
                         </div>
                         <div className="text-gray-600 text-sm">
-                          Mobile (Click to Copy)
+                          {t("contact.form.loc.mob")}
                         </div>
                       </div>
                     </button>
@@ -249,7 +250,9 @@ export default function ContactFrom() {
                         <div className="font-medium text-gray-800">
                           info@gsreducation.com
                         </div>
-                        <div className="text-gray-600 text-sm">Email</div>
+                        <div className="text-gray-600 text-sm">
+                          {t("contact.form.loc.mail")}
+                        </div>
                       </div>
                     </a>
                   </div>
@@ -263,7 +266,7 @@ export default function ContactFrom() {
                   className="w-full bg-gray-800 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition-colors flex items-center justify-center gap-2"
                 >
                   <MapPin className="h-4 w-4" />
-                  View on Google Map
+                  {t("contact.form.loc.button")}
                 </a>
               </div>
             </div>

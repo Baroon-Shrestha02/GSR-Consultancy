@@ -1,52 +1,11 @@
 // src/Components/Documentation.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function Documentation() {
-  const steps = [
-    {
-      id: 1,
-      title: "Document Preparation",
-      description:
-        "The first step is to gather all necessary documents, including passports, citizenship certificates, birth certificates, and police clearances. Academic transcripts, character certificates, and skill certificates must be verified and organized. Proper document preparation reduces errors, avoids delays, and ensures smooth processing. Having documents ready in advance also saves time and builds confidence when submitting forms to consultants or authorities.",
-      keyPoints: [
-        "Gather all necessary documents",
-        "Verify academic and skill certificates",
-        "Reduces errors and avoids delays",
-        "Saves time and builds confidence",
-      ],
-      image: "/documentation.jpg",
-      imgLeft: false,
-    },
-    {
-      id: 2,
-      title: "Application & Visa Processing",
-      description:
-        "During visa processing, accuracy and attention to detail are crucial. Each application form should be completed carefully to avoid errors in spelling, dates, and signatures. Coordination with licensed consultants ensures that financial documents, affidavits, and sponsorship papers meet all requirements. Proper verification and submission significantly increase the chances of visa approval and prevent unnecessary delays or rejections.",
-      keyPoints: [
-        "Accuracy and attention to detail",
-        "Avoid errors in spelling, dates, and signatures",
-        "Financial documents, affidavits, and sponsorship papers",
-        "Increase chances of visa approval",
-      ],
-      image: "/Application.jpg",
-      imgLeft: true,
-    },
-    {
-      id: 3,
-      title: "Final Preparation & Departure",
-      description:
-        "The final step ensures that students are fully prepared for departure. Pre-departure orientation covers Japanese, Korean, and English lifestyle, culture, workplace etiquette, and daily routines. Assistance with ticketing, travel preparation, and last-minute guidance helps students feel confident, safe, and ready for their journey. This step reduces anxiety, improves readiness, and ensures a smooth transition into life abroad.",
-      keyPoints: [
-        "Fully prepared for departure",
-        "Japanese, Korean, and English lifestyle and culture",
-        "Confident, safe, and ready",
-        "Reduces anxiety and improves readiness",
-      ],
-      image: "/final.jpg",
-      imgLeft: false,
-    },
-  ];
+  const { t } = useTranslation();
+  const steps = t("doc.steps", { returnObjects: true });
 
   // Framer Motion Variants
   const fadeInUp = {
@@ -87,7 +46,7 @@ export default function Documentation() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Documentation & Visa Guidance
+          {t("doc.hero.heading")}
         </motion.h1>
         <motion.p
           className="text-lg leading-relaxed max-w-3xl text-white font-semibold"
@@ -95,10 +54,7 @@ export default function Documentation() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          We assist students at every step—from document preparation to
-          pre-departure orientation—for Japanese, Korean, and English programs.
-          Our team coordinates with professional consultants and licensed
-          manpower agencies to ensure smooth processing.
+          {t("doc.hero.subheading")}
         </motion.p>
       </motion.div>
 

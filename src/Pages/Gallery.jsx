@@ -78,27 +78,45 @@ export default function GalleryPage() {
   }, []);
 
   const gallery = [
-    { src: "/Gallery1.jpg", type: "image"},
-    { src: "/WhatsApp Image 2025-08-17 at 08.02.35_456f52ee.jpg", type: "image"},
-    
-    { src: "/pic5.jpg", type: "pic5.jpg"},
-    { src: "/WhatsApp Image 2025-08-17 at 08.02.35_456f52ee.jpg", type: "image"},
-    { src: "/WhatsApp Image 2025-08-17 at 08.03.55_41b2a95c.jpg", type: "image"},
-    { src: "/WhatsApp Image 2025-08-17 at 08.03.57_d383c851.jpg", type: "image"},
-    { src: "/WhatsApp Video 2025-08-18 at 00.19.53_d4f70c51.mp4", type: "video"},
-    { src: "/WhatsApp Video 2025-08-18 at 00.19.53_32558a84.mp4", type: "video"},
-    {src: "/images/IMG-20250817-WA0002.jpg", type: "image"},
-    {src: "/images/IMG-20250817-WA0003.jpg", type: "image"},
-    {src: "/images/IMG-20250817-WA0005.jpg", type: "image"},
-    {src: "/images/IMG-20250817-WA0006.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0001.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0002.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0003.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0004.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0005.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0006.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0007.jpg", type: "image"},
-    {src: "/images/IMG-20250822-WA0008.jpg", type: "image"},
+    { src: "/Gallery1.jpg", type: "image" },
+    {
+      src: "/WhatsApp Image 2025-08-17 at 08.02.35_456f52ee.jpg",
+      type: "image",
+    },
+
+    { src: "/pic5.jpg", type: "pic5.jpg" },
+    {
+      src: "/WhatsApp Image 2025-08-17 at 08.02.35_456f52ee.jpg",
+      type: "image",
+    },
+    {
+      src: "/WhatsApp Image 2025-08-17 at 08.03.55_41b2a95c.jpg",
+      type: "image",
+    },
+    {
+      src: "/WhatsApp Image 2025-08-17 at 08.03.57_d383c851.jpg",
+      type: "image",
+    },
+    {
+      src: "/WhatsApp Video 2025-08-18 at 00.19.53_d4f70c51.mp4",
+      type: "video",
+    },
+    {
+      src: "/WhatsApp Video 2025-08-18 at 00.19.53_32558a84.mp4",
+      type: "video",
+    },
+    { src: "/images/IMG-20250817-WA0002.jpg", type: "image" },
+    { src: "/images/IMG-20250817-WA0003.jpg", type: "image" },
+    { src: "/images/IMG-20250817-WA0005.jpg", type: "image" },
+    { src: "/images/IMG-20250817-WA0006.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0001.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0002.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0003.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0004.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0005.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0006.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0007.jpg", type: "image" },
+    { src: "/images/IMG-20250822-WA0008.jpg", type: "image" },
   ];
 
   const openModal = (index) => {
@@ -129,56 +147,43 @@ export default function GalleryPage() {
             background-position: 200% 0;
           }
         }
-      `}</style>{/* Hero Section */}
-<section className="relative w-full h-[70vh] lg:h-[80vh] overflow-hidden">
-  <div className="absolute inset-0">
-    <motion.img
-      src="/WhatsApp Image 2025-08-17 at 08.03.57_d383c851.jpg"
-      alt="Gallery Hero"
-      className="w-full h-full object-cover"
-      initial={{ scale: 1.1, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1.2 }}
-    />
-    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
-  </div>
-  <div className="relative z-10 h-full flex flex-col justify-center items-start text-left px-6 lg:px-20 text-white">
-    <div className="max-w-3xl">
-      <div className="bg-white/20 px-4 py-2 rounded-full text-sm inline-block mb-4">
-        {t("roomsHero.badgeTitle", "Our")} —{" "}
-        {t("roomsHero.badgeSubtitle", "Gallery")}
-      </div>
-      <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-        {t("roomsHero.headingLine1", "Welcome to")} <br />
-        {t("roomsHero.headingLine2", "Our Gallery")}
-      </h1>
-      <p className="text-xl lg:text-2xl text-gray-200 font-light leading-relaxed">
-        {t(
-          "roomsHero.paragraph",
-          "Explore beautiful moments and timeless designs."
-        )}
-      </p>
-    </div>
-  </div>
-</section>
-
-
+      `}</style>
+      {/* Hero Section */}
+      <section className="relative w-full h-[70vh] lg:h-[80vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <motion.img
+            src="/WhatsApp Image 2025-08-17 at 08.03.57_d383c851.jpg"
+            alt="Gallery Hero"
+            className="w-full h-full object-cover"
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2 }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
+        </div>
+        <div className="relative z-10 h-full flex flex-col justify-center items-start text-left px-6 lg:px-20 text-white">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              {t("gallery.hero.heading")}
+            </h1>
+            <p className="text-xl lg:text-2xl text-gray-200 font-light leading-relaxed">
+              {t("gallery.hero.subheading")}
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Gallery Grid */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              {t("nav.gallery", "Gallery")}
+              {t("gallery.heading")}
             </h2>
             <div className="w-24 h-1 bg-black mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {t(
-                "gallery.featuredDesc",
-                "Browse through our featured collection of rooms and spaces."
-              )}
+              {t("gallery.subheading")}
             </p>
-      
           </div>
           {isLoading ? (
             <GallerySkeletonGrid count={12} />
@@ -191,19 +196,14 @@ export default function GalleryPage() {
                   onClick={() => openModal(index)}
                   style={{
                     aspectRatio:
-                      index % 3 === 0
-                        ? "4/5"
-                        : index % 4 === 0
-                        ? "3/4"
-                        : "1/1",
+                      index % 3 === 0 ? "4/5" : index % 4 === 0 ? "3/4" : "1/1",
                   }}
                 >
-       
                   <LazyMotionItem type={file.type} src={file.src} />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <div className="bg-white/95 backdrop-blur-md rounded-full px-6 py-3 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 shadow-lg">
                       <span className="text-gray-800 font-semibold text-sm">
-                        {t("gallery.viewImage", "View Image")}
+                        {t("gallery.view")}
                       </span>
                     </div>
                   </div>
@@ -219,7 +219,7 @@ export default function GalleryPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4">
           <button
             onClick={closeModal}
-            className="absolute top-6 right-6 text-white/80 hover:text-white hover:bg-white/10 rounded-full p-3 transition-all duration-200"
+            className="absolute top-12 right-6 text-white/80 hover:text-white hover:bg-white/10 rounded-full p-3 transition-all duration-200"
           >
             <X size={28} />
           </button>
@@ -237,23 +237,22 @@ export default function GalleryPage() {
           </button>
 
           <div className="max-w-4xl max-h-[85vh] bg-white rounded-lg shadow-xl flex flex-col overflow-hidden">
-
-              <div className="flex-shrink-0 max-h-[70vh]">
-                {gallery[selectedIndex].type === "image" ? (
-                  <img
-                    src={gallery[selectedIndex].src}
-                    alt=""
-                    className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-md"
-                  />
-                ) : (
-                  <video
-                    src={gallery[selectedIndex].src}
-                    autoPlay
-                    muted
-                    loop
-                    className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-md"
-                  />
-                )}
+            <div className="flex-shrink-0 max-h-[70vh]">
+              {gallery[selectedIndex].type === "image" ? (
+                <img
+                  src={gallery[selectedIndex].src}
+                  alt=""
+                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-md"
+                />
+              ) : (
+                <video
+                  src={gallery[selectedIndex].src}
+                  autoPlay
+                  muted
+                  loop
+                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-md"
+                />
+              )}
             </div>
           </div>
         </div>

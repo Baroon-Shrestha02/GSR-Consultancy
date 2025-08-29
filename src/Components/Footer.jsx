@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook } from "lucide-react";
 import { BsWhatsapp, BsTiktok } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   const phoneNumber = "+977 9803016479";
   const email = "info@gsreducation.com";
-  const location = "Gongabu, Kathmandu, Nepal";
+  const location = "Kathmandu, near Shiva Mandir, Ring Road";
 
   const copyToClipboard = () => {
     navigator.clipboard
@@ -28,13 +31,13 @@ export default function Footer() {
       <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[80vw] md:w-[70vw] rounded-4xl bg-yellow-400 py-2 px-4 flex flex-col md:flex-row justify-between items-center shadow-md">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           <div className="font-semibold text-gray-900 text-lg">
-            Admission is open for the next year batch
+            {t("footer.top.heading")}
           </div>
           <Link
             to="/contact"
             className="bg-gray-900 text-white px-6 py-2 rounded-full font-semibold hover:bg-gray-800 transition flex items-center gap-2"
           >
-            Get started now
+            {t("footer.top.start")}
           </Link>
         </div>
         <div className="font-semibold text-gray-900 mt-2 md:mt-0">
@@ -48,11 +51,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="col-span-2 md:col-span-1">
             <img src="/logo4.png" alt="GSR Logo" className="rounded-2xl mb-4" />
-            <p className="text-gray-300 mb-4">
-              GSR Educational Academy provides high-quality education and
-              guidance for students in Kathmandu, Nepal. We are committed to
-              excellence in learning.
-            </p>
+            <p className="text-gray-300 mb-4">{t("footer.p1")}</p>
           </div>
 
           {/* Quick Links */}
@@ -61,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-400 hover:text-yellow-400">
-                  Home
+                  {t("nav.home")}
                 </Link>
               </li>
               <li>
@@ -69,7 +68,7 @@ export default function Footer() {
                   to="/about"
                   className="text-gray-400 hover:text-yellow-400"
                 >
-                  About Us
+                  {t("nav.about")}
                 </Link>
               </li>
               <li>
@@ -77,7 +76,7 @@ export default function Footer() {
                   to="/courses"
                   className="text-gray-400 hover:text-yellow-400"
                 >
-                  Our Courses
+                  {t("nav.course.main")}
                 </Link>
               </li>
               <li>
@@ -85,7 +84,7 @@ export default function Footer() {
                   to="/services"
                   className="text-gray-400 hover:text-yellow-400"
                 >
-                  Our Services
+                  {t("nav.services")}
                 </Link>
               </li>
               <li>
@@ -93,7 +92,7 @@ export default function Footer() {
                   to="/contact"
                   className="text-gray-400 hover:text-yellow-400"
                 >
-                  Contact
+                  {t("nav.contact")}
                 </Link>
               </li>
             </ul>
@@ -101,10 +100,14 @@ export default function Footer() {
 
           {/* Need Help */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Need Help?</h3>
+            <h3 className="text-xl font-semibold mb-4">
+              {t("footer.help.need")}
+            </h3>
             <div className="space-y-4">
               <div>
-                <span className="text-gray-400 text-sm">Call us directly?</span>
+                <span className="text-gray-400 text-sm">
+                  {t("footer.help.call")}
+                </span>
                 <button
                   onClick={copyToClipboard}
                   className="block text-white font-semibold hover:text-yellow-400 transition-colors"
@@ -113,7 +116,9 @@ export default function Footer() {
                 </button>
               </div>
               <div>
-                <span className="text-gray-400 text-sm">Need support?</span>
+                <span className="text-gray-400 text-sm">
+                  {t("footer.help.supp")}
+                </span>
                 <a
                   href={`mailto:${email}`}
                   className="block text-white font-semibold hover:text-yellow-400"
@@ -122,7 +127,9 @@ export default function Footer() {
                 </a>
               </div>
               <div>
-                <span className="text-gray-400 text-sm">Service Area</span>
+                <span className="text-gray-400 text-sm">
+                  {t("footer.help.ser")}
+                </span>
                 <div className="text-white font-semibold">Kathmandu, Nepal</div>
               </div>
             </div>
@@ -131,7 +138,9 @@ export default function Footer() {
           {/* Location & Social */}
           <div className="col-span-2 md:col-span-1">
             <div className="mb-4">
-              <div className="text-gray-400 text-sm mb-1">📍 Location</div>
+              <div className="text-gray-400 text-sm mb-1">
+                📍 {t("footer.help.loc")}
+              </div>
               <div className="text-white font-semibold">{location}</div>
             </div>
 
@@ -147,7 +156,7 @@ export default function Footer() {
                 title="Gongabu Location"
               ></iframe>
             </div>
-            <h3 className="pb-4">Follow Us on:</h3>
+            <h3 className="pb-4">{t("footer.help.fol")}:</h3>
             <div className="flex gap-3">
               {/* Facebook */}
               <a
@@ -185,16 +194,13 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="mt-6 border-t border-gray-700 pt-4 text-center text-gray-400 text-sm">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 pb-4">
-            <div>
-              © 2025 GSR Educational Academy. Proudly serving students in
-              Kathmandu, Nepal.
-            </div>
+            <div>© 2025 {t("footer.cpy")}.</div>
             <div className="flex items-center gap-4">
               <Link to="#">
-                <div>Privacy Policy</div>
+                <div>{t("footer.privacy")}</div>
               </Link>
               <Link to="#">
-                <div>Terms of Services</div>
+                <div>{t("footer.term")}</div>
               </Link>
             </div>
           </div>
