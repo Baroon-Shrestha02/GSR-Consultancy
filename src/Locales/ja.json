@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "私たちについて",
+    "services": "サービス",
+    "gallery": "ギャラリー",
+    "faq": "よくある質問",
+    "doc": "ドキュメント",
+    "form": "形状",
+    "course": {
+      "main": "私たちのコース",
+      "japan": {
+        "head": "日本への留学",
+        "subhead": "日本語教育への道"
+      },
+      "korea": {
+        "head": "韓国留学",
+        "subhead": "韓国の大学への完全ガイド"
+      },
+      "eng": {
+        "head": "英語を勉強する",
+        "subhead": "流暢な英語を身につけるための完全ガイド"
+      },
+      "sublabels": {
+        "skill": "技能試験",
+        "prep": "言語の準備"
+      }
+    },
+    "contact": "お問い合わせ",
+    "header": {
+      "consult": "相談を予約する"
+    },
+    "footer": {
+      "cpy": "GSR Education、全著作権所有。",
+      "book": "今すぐ予約する"
+    }
+  }
+}

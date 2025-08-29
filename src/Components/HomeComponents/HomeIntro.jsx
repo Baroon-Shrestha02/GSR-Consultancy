@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HomeIntro = () => {
   const container = {
@@ -48,23 +49,28 @@ const HomeIntro = () => {
         {/* Text Section */}
         <motion.div className="space-y-6" variants={fadeUp}>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-snug">
-            Choose <span className="text-yellow-500">GSR Educational Consultancy</span> — 
-            Your Trusted Abroad Partner
+            Choose{" "}
+            <span className="text-yellow-500">GSR Educational Consultancy</span>{" "}
+            — Your Trusted Abroad Partner
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
             At GSR, we guide students toward achieving their dreams of studying
             abroad with confidence. From selecting the right university to visa
             assistance and pre-departure preparation, our team ensures a smooth
             journey every step of the way. <br />
-            <span className="font-semibold text-gray-900">Your future deserves the best — and that’s what we deliver.</span>
+            <span className="font-semibold text-gray-900">
+              Your future deserves the best — and that’s what we deliver.
+            </span>
           </p>
-          <motion.button
-            className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Start Your Journey
-          </motion.button>
+          <Link to="/about">
+            <motion.button
+              className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start Your Journey
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
 

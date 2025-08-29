@@ -4,11 +4,11 @@ import { Users, BookOpen, FileText, Globe } from "lucide-react";
 import { BsAirplane } from "react-icons/bs";
 
 const stepImages = [
-  "/services/cosuslation.jpg",
-  "/services/uni.jpg",
-  "/services/application.jpg",
-  "/services/visaapproval.jpg",
-  "/services/departure.jpg",
+  "/serv/cosuslation.jpg",
+  "/serv/uni.jpg",
+  "/serv/application.jpg",
+  "/serv/visaapproval.jpg",
+  "/serv/departure.jpg",
 ];
 
 const steps = [

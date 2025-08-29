@@ -26,6 +26,10 @@ export default function ContactFrom() {
       [name]: value,
     }));
   };
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    alert("Phone number copied!"); // Replace with toast if you have one
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -185,7 +189,7 @@ export default function ContactFrom() {
               <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg h-48 mb-6 relative overflow-hidden">
                 <iframe
                   title="GSR Educational Academy Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.2072929112276!2d85.30956207541285!3d27.711495876179175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19e053ad4f15%3A0xb34b9db8a5f6c3c2!2sGongabu%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1690964700000!5m2!1sen!2snp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2679.6785073910905!2d85.3113542463692!3d27.73381244853153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1942544a706d%3A0x6bc2e4a7198713cc!2sGSR%20Educational%20Academy!5e0!3m2!1sen!2snp!4v1756352526815!5m2!1sen!2snp"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -203,40 +207,64 @@ export default function ContactFrom() {
                   </h3>
 
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3">
+                    {/* Address */}
+                    <a
+                      href="https://maps.app.goo.gl/4EQGYJasLE4NRj7v5"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-3 hover:text-blue-600 transition"
+                    >
                       <MapPin className="h-5 w-5 text-gray-500 mt-1 flex-shrink-0" />
                       <div>
-                        <div className="font-medium text-gray-800">Gongabu</div>
+                        <div className="font-medium text-gray-800">
+                          Kathmandu, near Shiva Mandir, Ring Road
+                        </div>
                         <div className="text-gray-600 text-sm">Address</div>
                       </div>
-                    </div>
+                    </a>
 
-                    <div className="flex items-center gap-3">
+                    {/* Phone */}
+                    <button
+                      onClick={() => handleCopy("+9779803016479")}
+                      className="flex items-center gap-3 hover:text-blue-600 transition"
+                    >
                       <Phone className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                      <div>
+                      <div className="text-left">
                         <div className="font-medium text-gray-800">
-                          +977 9849011240
+                          +977 9803016479
                         </div>
-                        <div className="text-gray-600 text-sm">Mobile</div>
+                        <div className="text-gray-600 text-sm">
+                          Mobile (Click to Copy)
+                        </div>
                       </div>
-                    </div>
+                    </button>
 
-                    <div className="flex items-center gap-3">
+                    {/* Email */}
+                    <a
+                      href="mailto:info@gsreducation.com"
+                      className="flex items-center gap-3 hover:text-blue-600 transition"
+                    >
                       <Mail className="h-5 w-5 text-gray-500 flex-shrink-0" />
                       <div>
                         <div className="font-medium text-gray-800">
-                          gsreduacademy@gmail.com
+                          info@gsreducation.com
                         </div>
                         <div className="text-gray-600 text-sm">Email</div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
 
-                <button className="w-full bg-gray-800 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition-colors flex items-center justify-center gap-2">
+                {/* View on Google Map Button */}
+                <a
+                  href="https://maps.app.goo.gl/4EQGYJasLE4NRj7v5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-gray-800 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition-colors flex items-center justify-center gap-2"
+                >
                   <MapPin className="h-4 w-4" />
-                  View on google map
-                </button>
+                  View on Google Map
+                </a>
               </div>
             </div>
           </div>

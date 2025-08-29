@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "About Us",
+    "services": "Services",
+    "gallery": "Gallery",
+    "faq": "FAQ's",
+    "doc": "Documentation",
+    "form": "Form",
+    "course": {
+      "main": "Our courses",
+      "japan": {
+        "head": "Study in Japan",
+        "subhead": "Your pathway to Japanese education"
+      },
+      "korea": {
+        "head": "Study in Korea",
+        "subhead": "Complete guidance for Korean universities"
+      },
+      "eng": {
+        "head": "Study English",
+        "subhead": "Complete guidance for fluent English"
+      },
+      "sublabels": {
+        "skill": "Skill Test",
+        "prep": "Language Preperation"
+      }
+    },
+    "contact": "Contact Us",
+    "header": {
+      "consult": "Book a Consultation"
+    },
+    "footer": {
+      "cpy": "GSR Education, All Rights Reserved.",
+      "book": "Book Now"
+    }
+  }
+}

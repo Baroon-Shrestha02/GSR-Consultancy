@@ -23,12 +23,15 @@ import SKill from "./Pages/SKill";
 import Ietls from "./Pages/Ietls";
 import PTE from "./Pages/PTE";
 import Tofel from "./Pages/Tofel";
+import LanguageSwitcher from "./Components/HelperComponents/LanguageSwitcher";
+import FixedIcons from "./Components/HelperComponents/FixedIcons";
 
 export default function App() {
   return (
     <>
-      <WhatsAppButton />
-      <ScrollToTop />
+      <FixedIcons />
+      {/* <WhatsAppButton />
+      <ScrollToTop /> */}
       <Navbar />
       <Routes>
         <Route element={<HomePage />} path="/" />
@@ -43,22 +46,21 @@ export default function App() {
         <Route element={<StudyKorea />} path="/courses/study-in-korea" />
         <Route element={<Documentation />} path="/documentation" />
         <Route element={<Form />} path="/admission-form" />
-        <Route element={<JLPT/>} path="/courses/study-in-japan/jlpt" />
+        <Route element={<JLPT />} path="/courses/study-in-japan/jlpt" />
 
         <Route element={<NAT />} path="/courses/study-in-japan/NAT" />
         <Route element={<SKill />} path="/courses/study-in-japan/skill" />
         <Route element={<TOPIK />} path="/courses/study-in-korea/topik" />
-        <Route element={<KoreanLang />} path="/courses/study-in-korea/language" />
+        <Route
+          element={<KoreanLang />}
+          path="/courses/study-in-korea/language"
+        />
 
         <Route element={<Ietls />} path="/courses/english/ielts" />
         <Route element={<PTE />} path="/courses/english/pte" />
         <Route element={<Tofel />} path="/courses/english/tofel" />
-
-        
-
       </Routes>
       <Footer />
     </>
   );
 }
-

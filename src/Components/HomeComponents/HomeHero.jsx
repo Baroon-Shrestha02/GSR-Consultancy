@@ -43,22 +43,37 @@ const CountUp = ({ end, duration = 2000, suffix = "" }) => {
 const HeroSection = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.3, delayChildren: 0.2 } },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.3, delayChildren: 0.2 },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   const buttonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   const statsVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.5 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.5 },
+    },
   };
 
   return (
@@ -90,9 +105,10 @@ const HeroSection = () => {
             variants={itemVariants}
             className="text-base sm:text-lg md:text-xl lg:text-xl text-yellow-50 mb-8 max-w-2xl px-2 sm:px-0"
           >
-            We provide consistent and reliable educational opportunities for learners worldwide,
-            empowering students to achieve their academic and professional goals with expert guidance
-            and personalized support.
+            We provide consistent and reliable educational opportunities for
+            learners worldwide, empowering students to achieve their academic
+            and professional goals with expert guidance and personalized
+            support.
           </motion.p>
           {/* Buttons */}
           <motion.div
@@ -131,25 +147,24 @@ const HeroSection = () => {
           >
             <motion.div variants={itemVariants}>
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">
-                <CountUp end={260} suffix="+" />
-              </div>
-              <div className="text-yellow-100 font-medium border-b-2 border-white pb-1 inline-block">
-                Tutors
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">
-                <CountUp end={5340} suffix="+" />
+                <CountUp end={1000} suffix="+" />
               </div>
               <div className="text-yellow-100 font-medium border-b-2 border-white pb-1 inline-block">
                 Students
               </div>
             </motion.div>
+            <motion.div variants={itemVariants}>
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">
+                <CountUp end={20} suffix="+" />
+              </div>
+              <div className="text-yellow-100 font-medium border-b-2 border-white pb-1 inline-block">
+                Instructors
+              </div>
+            </motion.div>
 
             <motion.div variants={itemVariants}>
               <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-white">
-                <CountUp end={280} suffix="+" />
+                <CountUp end={20} suffix="%" />
               </div>
               <div className="text-yellow-100 font-medium border-b-2 border-white pb-1 inline-block">
                 Courses

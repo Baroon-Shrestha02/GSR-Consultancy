@@ -138,7 +138,7 @@ export default function Footer() {
             {/* Google Map */}
             <div className="mb-4 rounded-xl overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.9734686121567!2d85.3215164!3d27.7290345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19885c21b3ff%3A0xf08a2b6d5a9b3e3e!2sGongabu%2C%20Kathmandu%2C%20Nepal!5e0!3m2!1sen!2sus!4v1692100000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2679.6785073910905!2d85.3113542463692!3d27.73381244853153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1942544a706d%3A0x6bc2e4a7198713cc!2sGSR%20Educational%20Academy!5e0!3m2!1sen!2snp!4v1756352526815!5m2!1sen!2snp"
                 width="100%"
                 height="150"
                 style={{ border: 0 }}
@@ -147,7 +147,6 @@ export default function Footer() {
                 title="Gongabu Location"
               ></iframe>
             </div>
-
             <h3 className="pb-4">Follow Us on:</h3>
             <div className="flex gap-3">
               {/* Facebook */}

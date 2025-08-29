@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { BsTiktok, BsWhatsapp } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 // Mock components for demo - replace with actual react-router-dom imports
 const Link = ({ to, children, ...props }) => (
@@ -38,6 +39,13 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeCourse, setActiveCourse] = useState(0);
+
+  const { t } = useTranslation();
+
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    alert("Phone number copied!"); // Replace with toast if you have one
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,38 +120,44 @@ export default function Navbar() {
 
   // Navigation links (without contact us)
   const navLinks = [
-    { to: "/about", label: "About Us" },
-    { to: "/services", label: "Our Services" },
-    { to: "/gallery", label: "Gallery" },
-    { to: "/faq", label: "FAQ's" },
-    { to: "/documentation", label: "Documentation" },
-    { to: "/admission-form", label: "Form" },
+    { to: "/about", label: t("nav.about") },
+    { to: "/services", label: t("nav.services") },
+    { to: "/gallery", label: t("nav.gallery") },
+    { to: "/faq", label: t("nav.faq") },
+    { to: "/documentation", label: t("nav.doc") },
+    { to: "/admission-form", label: t("nav.form") },
   ];
 
   const courseLinks = [
     {
       to: "/courses/study-in-japan",
-      label: "Study in Japan",
-      description: "Your pathway to Japanese education",
+      label: t("nav.course.japan.head"),
+      description: t("nav.course.japan.subhead"),
       subLinks: [
         { to: "/courses/study-in-japan/jlpt", label: "JLPT" },
         { to: "/courses/study-in-japan/NAT", label: "NAT" },
-        { to: "/courses/study-in-japan/skill", label: "Skill Test" },
+        {
+          to: "/courses/study-in-japan/skill",
+          label: t("nav.course.sublabels.skill"),
+        },
       ],
     },
     {
       to: "/courses/study-in-korea",
-      label: "Study in Korea",
-      description: "Complete guidance for Korean universities",
+      label: t("nav.course.korea.head"),
+      description: t("nav.course.korea.subhead"),
       subLinks: [
         { to: "/courses/study-in-korea/topik", label: "TOPIK" },
-        { to: "/courses/study-in-korea/language", label: "Language Programs" },
+        {
+          to: "/courses/study-in-korea/language",
+          label: t("nav.course.sublabels.prep"),
+        },
       ],
     },
     {
       to: "/courses/english",
-      label: "Study English",
-      description: "Complete guidance for fluent English",
+      label: t("nav.course.eng.head"),
+      description: t("nav.course.eng.subhead"),
       subLinks: [
         { to: "/courses/english/ielts", label: "IELTS" },
         { to: "/courses/english/tofel", label: "TOEFL" },
@@ -167,12 +181,17 @@ export default function Navbar() {
       >
         <div className="container mx-auto flex items-center justify-between text-xs sm:text-sm">
           <div className="flex items-center gap-3 sm:gap-6">
-            <div className="flex items-center gap-1 sm:gap-2">
-              <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">info@gsreducation.com</span>
-              <span className="sm:hidden">Email</span>
-            </div>
-            <div className="flex items-center gap-1 sm:gap-2">
+            <a href="mailto:info@gsreducation.com">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">info@gsreducation.com</span>
+                <span className="sm:hidden">Email</span>
+              </div>
+            </a>
+            <div
+              className="flex items-center gap-1 sm:gap-2"
+              onClick={() => handleCopy("+9779803016479")}
+            >
               <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
               <span className="hidden md:inline">+977 9803016479</span>
               <span className="md:hidden">Call</span>
@@ -184,7 +203,7 @@ export default function Navbar() {
             to="/contact"
             className="bg-yellow-400 text-[#002452] font-semibold px-2 sm:px-4 py-1 rounded-md hover:bg-yellow-500 transition text-xs sm:text-sm"
           >
-            <span className="hidden sm:inline">Book a Consultation</span>
+            <span className="hidden sm:inline">{t("nav.header.consult")}</span>
             <span className="sm:hidden">Book</span>
           </Link>
         </div>
@@ -303,7 +322,7 @@ export default function Navbar() {
                         : "text-[#002452] hover:text-yellow-600"
                     }`}
                   >
-                    Our Courses
+                    {t("nav.course.main")}
                     <motion.div
                       animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
@@ -384,7 +403,7 @@ export default function Navbar() {
                       : "bg-[#002452] text-white hover:bg-blue-900"
                   }`}
                 >
-                  Contact Us
+                  {t("nav.contact")}
                 </Link>
               </motion.div>
             </div>
@@ -598,25 +617,25 @@ export default function Navbar() {
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm gap-2 sm:gap-3 md:gap-0">
           {/* Copyright */}
           <span className="text-center sm:text-left order-2 sm:order-1">
-            ©️ {new Date().getFullYear()} GSR edu Academy. All rights reserved.
+            ©️ {new Date().getFullYear()} {t("nav.footer.cpy")}
           </span>
 
           {/* Middle Links */}
           <div className="flex items-center gap-3 sm:gap-6 order-1 sm:order-2">
             <a href="/faq" className="hover:text-yellow-400 transition-colors">
-              FAQ
+              {t("nav.faq")}
             </a>
             <a
               href="/contact"
               className="hover:text-yellow-400 transition-colors"
             >
-              Contact
+              {t("nav.contact")}
             </a>
             <a
               href="/contact"
               className="hover:text-yellow-400 transition-colors"
             >
-              Book Now
+              {t("nav.footer.book")}
             </a>
           </div>
 

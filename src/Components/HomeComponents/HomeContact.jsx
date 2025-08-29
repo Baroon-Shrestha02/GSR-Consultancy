@@ -5,30 +5,34 @@ const contactInfo = [
   {
     id: 1,
     title: "Phone",
-    details: ["+1 (555) 123-4567", "+1 (555) 765-4321"],
+    details: ["+977 9803016479"],
     icon: "📞",
     color: "bg-blue-500",
+    type: "phone",
   },
   {
     id: 2,
     title: "Email",
-    details: ["info@company.com", "support@company.com"],
+    details: ["info@gsreducation.com"],
     icon: "📧",
     color: "bg-green-500",
+    type: "email",
   },
   {
     id: 3,
     title: "Address",
-    details: ["123 Business Street", "Suite 100, City, State 12345"],
+    details: ["Kathmandu, near Shiva Mandir, Ring Road"],
     icon: "📍",
     color: "bg-orange-500",
+    type: "map",
   },
   {
     id: 4,
     title: "Business Hours",
-    details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 10:00 AM - 4:00 PM"],
+    details: ["Sun - Fri: 9:00 AM - 5:00 PM", "Sat: Closed"],
     icon: "🕒",
     color: "bg-purple-500",
+    type: "text",
   },
 ];
 
@@ -45,27 +49,71 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const ContactCard = ({ info }) => (
-  <motion.div
-    variants={itemVariants}
-    className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
-    whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: "easeOut" } }}
-  >
-    <div
-      className={`w-12 h-12 shadow-xl rounded-lg flex items-center justify-center text-white text-xl mb-4 group-hover:scale-110 transition-transform duration-300`}
-    >
-      {info.icon}
-    </div>
-    <h3 className="text-lg font-semibold text-gray-800 mb-3">{info.title}</h3>
-    <div className="space-y-2">
-      {info.details.map((detail, index) => (
-        <p key={index} className="text-gray-600 text-sm">
+const ContactCard = ({ info }) => {
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    alert("Copied to clipboard!"); // replace with toast if available
+  };
+
+  const renderDetail = (detail) => {
+    if (info.type === "phone") {
+      return (
+        <button
+          onClick={() => handleCopy(detail)}
+          className="text-gray-600 text-sm hover:text-blue-600 transition"
+        >
           {detail}
-        </p>
-      ))}
-    </div>
-  </motion.div>
-);
+        </button>
+      );
+    }
+    if (info.type === "email") {
+      return (
+        <a
+          href={`mailto:${detail}`}
+          className="text-gray-600 text-sm hover:text-blue-600 transition"
+        >
+          {detail}
+        </a>
+      );
+    }
+    if (info.type === "map") {
+      return (
+        <a
+          href={`https://maps.app.goo.gl/iqXJ5MZzE6Xzi4DY6`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-600 text-sm hover:text-blue-600 transition"
+        >
+          {detail}
+        </a>
+      );
+    }
+    return <p className="text-gray-600 text-sm">{detail}</p>;
+  };
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
+      whileHover={{
+        scale: 1.02,
+        transition: { duration: 0.3, ease: "easeOut" },
+      }}
+    >
+      <div
+        className={`w-12 h-12 shadow-xl rounded-lg flex items-center justify-center text-white text-xl mb-4 group-hover:scale-110 transition-transform duration-300`}
+      >
+        {info.icon}
+      </div>
+      <h3 className="text-lg font-semibold text-gray-800 mb-3">{info.title}</h3>
+      <div className="space-y-2">
+        {info.details.map((detail, index) => (
+          <div key={index}>{renderDetail(detail)}</div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
 
 export default function HomeContact() {
   return (
@@ -129,7 +177,7 @@ export default function HomeContact() {
               </h3>
               <div className="relative overflow-hidden rounded-lg shadow-md">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3812174932073!2d85.31685772585128!3d27.705513676183635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19075849239d%3A0x4ddaddd1271c3890!2sBagbazar%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1755078094051!5m2!1sen!2snp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2679.6785073910905!2d85.3113542463692!3d27.73381244853153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1942544a706d%3A0x6bc2e4a7198713cc!2sGSR%20Educational%20Academy!5e0!3m2!1sen!2snp!4v1756352526815!5m2!1sen!2snp"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}
@@ -137,6 +185,7 @@ export default function HomeContact() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-lg"
+                  title="Google Map"
                 />
               </div>
             </div>

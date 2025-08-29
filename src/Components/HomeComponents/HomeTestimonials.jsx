@@ -79,12 +79,13 @@ export default function HomeTestimonials() {
               <span className="text-gray-900">Hundreds Students.</span>
             </h1>
             <p className="text-gray-800 text-lg mb-12 max-w-md">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit venenatis
-              dictum nec.
+              Guiding students towards their dreams with expert mentorship,
+              reliable support, and a proven track record of success in
+              education abroad.
             </p>
             <div className="flex items-end gap-4">
               <div className="text-7xl lg:text-8xl font-bold text-gray-900">
-                90%
+                98%
               </div>
               <div className="text-gray-800 pb-4">
                 <div className="font-medium">Visa Success Rate</div>
